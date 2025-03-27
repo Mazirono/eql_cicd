@@ -25,15 +25,16 @@ public class CustomerController {
     this.customerService = customerService;
   }
 
-  @GetMapping
-  public List<Customer> getCustomers(){
-    return this.customerService.getAllCustomers();
-  }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Customer addCustomer(@RequestBody Customer customer){
     return this.customerService.addCustomer(customer);
+  }
+
+  @GetMapping("/hello")
+  public String hello(){
+    return "Hello world";
   }
 
   @GetMapping("/{id}")
